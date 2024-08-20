@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    font-family: Campton, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header a, .nav-links a, .footer-about a {
+    color: #000000; /* Set link color */
+    text-decoration: none; /* Remove underline */
+}
+
+header a:hover, .nav-links a:hover, .footer-about a:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header {
+    background: transparent;
+    color: #000000;
+    padding: 20px 0;
+    z-index: 1000;
+}
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff; /* Match sidebar color */
+    color: #000000; /* Ensure text color is black for contrast */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.open-sidebar-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000000; /* Ensure icon color is black */
+    margin-right: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo i {
+    font-size: 26px;
+    margin-right: 3px; /* Space between the cart icon and the text */
+    color: #000000;
+}
+
+.profile-icon {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000000; /* Ensure icon color is black */
+}
+
+@media (max-width: 768px) {
+    .navbar .profile-icon i {
+        font-size: 1.25rem;
+    }
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100vh; /* Full viewport height */
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff; /* Set sidebar background to white */
+    color: #000000; /* Ensure text color is black for contrast */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 8px 32px;
+    font-size: 1.25rem;
+    color: #000000; /* Set link color to black for contrast */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Position at the edge of the sidebar */
+    font-size: 2rem;
+    color: #000000; /* Ensure close button color is black */
+    cursor: pointer;
+    z-index: 1001; /* Ensure it is above other content */
+}
+
+@media (max-width: 768px) {
+    .sidebar a {
+        font-size: 1rem;
+    }
+}
+
+.content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+/* Footer Styling */
+footer {
+    background: #000000;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    font-family: 'Campton', sans-serif;
+    margin-top: 40px;
+}
+
+.footer-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 50px;
+    border-bottom: 1px solid #444;
+}
+
+.footer-address {
+    flex: 1;
+}
+
+.footer-address p {
+    margin: 5px 0;
+    font-size: smaller;
+}
+
+.footer-about {
+    flex: 1;
+}
+
+.footer-about a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: smaller;
+    margin: 5px 0;
+}
+
+.footer-about a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-social .social-icon {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.footer-social .social-icon:hover {
+    color: #B7D817;
+}
+
+.footer-bottom {
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+.tracker {
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: -20px;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size:medium;
+        }
+
+        .dashboard-content {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: calc(100vh - 60px); /* Adjust based on header height */
+}
+
+.product-container {
+    margin-top: -20px;
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    width: 800px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    border: 1px solid #ddd; /* Optional: Add border for visual separation */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for a card-like appearance */
+    overflow: hidden; /* Hide overflowing content */
+    background-color: #fff; /* Background color */
+}
+
+.product-image {
+    flex: 0 0 40%;
+    overflow: hidden; /* Ensure image doesn’t overflow */
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio while covering the box */
+}
+
+.product-details {
+    flex: 1;
+    margin-left: 30px;
+    padding: 30px;
+    overflow-y: auto; /* Add scrollbar if content overflows */
+}
+
+.product-details h2 {
+    margin-top: 0;
+    font-size: 1.5rem; /* Adjust font size */
+}
+
+.subscription-options {
+    margin-top: 20px;
+}
+
+.custom-dates {
+    display: none; /* Hide by default */
+    margin-top: 20px;
+}
+
+.custom-dates input {
+    margin-right: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo-container">
+                <span class="open-sidebar-btn" onclick="openSidebar()">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <div class="logo">
+                    <i class="bi bi-cart"></i> PeppyProduce
+                </div>
+            </div>
+            <div class="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">
+            <i class="fas fa-times"></i>
+        </a>
+        <a href="#categories">Categories</a>
+        <a href="#subscription">Subscription</a>
+        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+    </div>
+
+    <div class="tracker">
+        <a href="dashboard.html">Home</a> > <a href="dairy-list.html">Dairy Products</a> > <span id="product-name">Product Name</span>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="main-section">
+            <div class="product-container" id="product-detail">
+                <!-- Product detail will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-upper">
+            <div class="footer-address">
+                <h4>Address</h4>
+                <p>1234 Elm St</p>
+                <p>Suite 567</p>
+                <p>Springfield, USA</p>
+            </div>
+            <div class="footer-about">
+                <h4>About</h4>
+                <a href="#faq">FAQ</a>
+                <a href="#terms">Terms and Conditions</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-social">
+                <h4>Connect with us</h4>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 404 Brain Not Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.querySelector(".content").style.marginLeft = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.querySelector(".content").style.marginLeft= "0";
+        }
+
+        function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+function renderProductDetail(product) {
+    const productContainer = document.getElementById('product-detail');
+
+    productContainer.innerHTML = `
+        <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+        </div>
+        <div class="product-details">
+    <h2 id="product-name">${product.name}</h2>
+    <p id="product-price">$${product.price}</p>
+    <p id="product-description">${product.description}</p>
+    <div class="subscription-options">
+        <label for="subscription-type">Subscription Type:</label>
+        <select id="subscription-type" onchange="handleSubscriptionChange()">
+            <option value="single-day">Single Day</option>
+            <option value="weekly">Weekly</option>
+            <option value="bi-weekly">Bi-Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="custom">Custom</option>
+        </select>
+    </div>
+    <div id="custom-dates" class="custom-dates">
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date">
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date">
+    </div>
+    <button onclick="addToCart(${product.id})">Add to Cart</button>
+</div>
+
+    `;
+}
+
+fetch('dairy.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Log the data to check its structure
+        const productId = getQueryParam('id');
+        if (!productId) {
+            document.getElementById('product-detail').innerHTML = 'Product ID not provided.';
+            return;
+        }
+
+        const product = data.find(p => p.id === parseInt(productId));
+        if (product) {
+            renderProductDetail(product);
+        } else {
+            document.getElementById('product-detail').innerHTML = 'Product not found.';
+        }
+    })
+    .catch(error => console.error('Error fetching product details:', error));
+
+function handleSubscriptionChange() {
+    var subscriptionType = document.getElementById("subscription-type").value;
+    var customDates = document.getElementById("custom-dates");
+    
+    if (subscriptionType === "custom") {
+        customDates.style.display = "block";
+    } else {
+        customDates.style.display = "none";
+    }
+}
+function addToCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if the product is already in the cart
+    const productExists = cart.some(item => item.id === productId);
+    
+    if (productExists) {
+        alert(`Product ID ${productId} is already in the cart.`);
+    } else {
+        // If not already in the cart, add the product
+        const product = { id: productId }; // Adjust based on your needs
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        alert(`Product ID ${productId} added to the cart.`);
+    }
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = cart.length;
+    document.querySelector('.cart-count').textContent = cartCount; // Update cart count in the sidebar
+}
+
+// Call updateCartCount() on page load to initialize the count
+window.onload = function() {
+    updateCartCount();
+};
+
+
+
+
+    </script>
+</body>
+</html>

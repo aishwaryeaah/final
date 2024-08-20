@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Product Name 1",
+        "image": "./dairy/1.jpg",
+        "price": "$5.00",
+        "description": "Description of Product 1.",
+        "detailImage": "dairy-product1-detail.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Product Name 2",
+        "image": "./dairy/2.jpg",
+        "price": "$6.00",
+        "description": "Description of Product 2.",
+        "detailImage": "dairy-product2-detail.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Product Name 3",
+        "image": "./dairy/3.jpg",
+        "price": "$4.50",
+        "description": "Description of Product 3.",
+        "detailImage": "dairy-product3-detail.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Product Name 4",
+        "image": "./dairy/4.jpg",
+        "price": "$7.00",
+        "description": "Description of Product 4.",
+        "detailImage": "dairy-product4-detail.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Product Name 5",
+        "image": "./dairy/5.jpg",
+        "price": "$5.50",
+        "description": "Description of Product 5.",
+        "detailImage": "dairy-product5-detail.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Product Name 6",
+        "image": "./dairy/6.jpg",
+        "price": "$6.50",
+        "description": "Description of Product 6.",
+        "detailImage": "dairy-product6-detail.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Product Name 7",
+        "image": "./dairy/7.jpg",
+        "price": "$4.75",
+        "description": "Description of Product 7.",
+        "detailImage": "dairy-product7-detail.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Product Name 8",
+        "image": "./dairy/8.jpg",
+        "price": "$5.25",
+        "description": "Description of Product 8.",
+        "detailImage": "dairy-product8-detail.jpg"
+    }
+]

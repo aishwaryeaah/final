@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="cart.js" defer></script> <!-- Include the cart script -->
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo-container">
+                <span class="open-sidebar-btn" onclick="openSidebar()">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <div class="logo">
+                    <i class="bi bi-cart"></i> PeppyProduce
+                </div>
+            </div>
+            <div class="profile-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-image"></div>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">
+            <i class="fas fa-times"></i>
+        </a>
+        <a href="#categories">Categories</a>
+        <a href="#subscription">Subscription</a>
+        <a href="cart.html">Cart <span class="cart-count">0</span></a>
+
+    </div>
+
+    <div class="dashboard-content">
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab" id="groceries">
+                    <h3>Groceries & Staples</h3>
+                    <img src="https://images.pexels.com/photos/531446/pexels-photo-531446.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Atta, Dal, Rice" class="tab-image">
+                    <a href="grocery-list.html" class="order-now-btn">Order Now</a>
+                </div>
+                <div class="tab" id="snacks">
+                    <h3>Processed Food</h3>
+                    <img src="https://images.pexels.com/photos/7451961/pexels-photo-7451961.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Snacks" class="tab-image">
+                    <a href="snacks-list.html" class="order-now-btn">Order Now</a>
+                </div>
+                <div class="tab" id="veggies-fruits">
+                    <h3>Veggies & Fruits</h3>
+                    <img src="https://images.pexels.com/photos/13000111/pexels-photo-13000111.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Veggies & Fruits" class="tab-image">
+                    <a href="veggie-list.html" class="order-now-btn">Order Now</a>
+                </div>
+                <div class="tab" id="dairy">
+                    <h3>Dairy Products</h3>
+                    <img src="https://images.pexels.com/photos/7451957/pexels-photo-7451957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Milk & Dairy Products" class="tab-image">
+                    <a href="dairy-list.html" class="order-now-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer>
+        <div class="footer-upper">
+            <div class="footer-address">
+                <h4>Address</h4>
+                <p>1234 Elm St</p>
+                <p>Suite 567</p>
+                <p>Springfield, USA</p>
+            </div>
+            <div class="footer-about">
+                <h4>About</h4>
+                <a href="#faq">FAQ</a>
+                <a href="#terms">Terms and Conditions</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+            <div class="footer-social">
+                <h4>Connect with us</h4>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 404 Brain Not Found. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.querySelector(".content").style.marginLeft = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.querySelector(".content").style.marginLeft= "0";
+        }
+    </script>
+</body>
+</html>

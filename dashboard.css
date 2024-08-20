@@ -1,0 +1,360 @@
+body {
+    font-family: Campton, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+header a, .nav-links a, .footer-about a {
+    color: #000000; /* Set link color */
+    text-decoration: none; /* Remove underline */
+}
+
+header a:hover, .nav-links a:hover, .footer-about a:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+header {
+    background: transparent;
+    color: #000000;
+    padding: 20px 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff; /* Match sidebar color */
+    color: #000000; /* Ensure text color is black for contrast */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.open-sidebar-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000000; /* Ensure icon color is black */
+    margin-right: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo i {
+    font-size: 26px;
+    margin-right: 3px; /* Space between the cart icon and the text */
+    color: #000000;
+}
+
+.profile-icon {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000000; /* Ensure icon color is black */
+}
+
+@media (max-width: 768px) {
+    .navbar .profile-icon i {
+        font-size: 1.25rem;
+    }
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100vh; /* Full viewport height */
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff; /* Set sidebar background to white */
+    color: #000000; /* Ensure text color is black for contrast */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 8px 32px;
+    font-size: 1.25rem;
+    color: #000000; /* Set link color to black for contrast */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Position at the edge of the sidebar */
+    font-size: 2rem;
+    color: #000000; /* Ensure close button color is black */
+    cursor: pointer;
+    z-index: 1001; /* Ensure it is above other content */
+}
+
+@media (max-width: 768px) {
+    .sidebar a {
+        font-size: 1rem;
+    }
+}
+
+.content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+.bg-image {
+    background-image: url('https://images.pexels.com/photos/9811474/pexels-photo-9811474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 80px); /* Full viewport height minus header height */
+    position: relative;
+    z-index: 0;
+}
+
+.bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.6); /* Whitish overlay */
+    z-index: 1;
+}
+
+.bg-image::after {
+    content: 'Everything You \A Need, All in One \A Place.';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(0, -50%);
+    color: #B7D817; /* Adjusted text color */
+    font-family: 'Campton', sans-serif;
+    font-size: 3.5rem; /* Make the text bigger */
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    white-space: pre-line; /* Ensure line breaks are respected */
+    z-index: 2;
+    padding-left: 20px; /* Add some padding to avoid text touching the edge */
+    animation: fadeIn 2s ease-in-out, slideIn 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+    0% { transform: translate(-50%, -60%); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+/* Footer Styling */
+footer {
+    background: #000000;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    font-family: 'Campton', sans-serif;
+    margin-top: 40px;
+}
+
+.footer-upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 50px;
+    border-bottom: 1px solid #444;
+}
+
+.footer-address {
+    flex: 1;
+}
+
+.footer-address p {
+    margin: 5px 0;
+    font-size: smaller;
+}
+
+.footer-about {
+    flex: 1;
+}
+
+.footer-about a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: smaller;
+    margin: 5px 0;
+}
+
+.footer-about a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-social .social-icon {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.footer-social .social-icon:hover {
+    color: #B7D817;
+}
+
+.footer-bottom {
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+
+.tabs-container {
+    width: 95%; /* Adjust width as needed */
+    height: 80vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    margin-left: 2.5%;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: center; /* Center tabs horizontally */
+    gap: 20px; /* Space between tabs */
+    margin: 20px; /* Margin around tabs */
+    width: 100%; /* Ensure it takes up full width */
+    max-width: 1200px; /* Optional: Limit max-width to prevent excessive stretching */
+}
+
+.tab {
+    position: relative;
+    background: #333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(25% - 20px); /* Four tabs in a row */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    height: 250px;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+
+.tab-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.tab-content-wrapper {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 70%);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.tab h3 {
+    margin-top: 0; /* Remove default margin */
+    color: #ffffff;
+    opacity: 100%;
+}
+
+.tab a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tab a:hover {
+    text-decoration: underline;
+}
+
+.order-now-btn {
+    background-color: #B7D817;
+    color: #000000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 30px;
+    box-shadow: 4px 4px 0 0 #000000;
+    z-index: 3; /* Ensure button is on top */
+}
+
+
+.order-now-btn:hover {
+    background-color: #B7D817; /* Slightly darker on hover */
+    color: #000000;
+    text-decoration: none;
+
+}
+
+.admin-product-detail .tab-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.admin-product-detail .tab-image {
+    flex: 1;
+}
+
+.admin-product-detail .tab-content {
+    flex: 2;
+    padding: 20px;
+}
