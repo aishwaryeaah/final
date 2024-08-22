@@ -4,216 +4,356 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <script src="logout-func.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-    font-family: Campton, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+            font-family: Campton, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-header a, .nav-links a, .footer-about a {
-    color: #000000; /* Set link color */
-    text-decoration: none; /* Remove underline */
-}
+        header a, .nav-links a, .footer-about a {
+            color: #000000; /* Set link color */
+            text-decoration: none; /* Remove underline */
+        }
 
-header a:hover, .nav-links a:hover, .footer-about a:hover {
-    text-decoration: none; /* Ensure no underline on hover */
-}
+        header a:hover, .nav-links a:hover, .footer-about a:hover {
+            text-decoration: none; /* Ensure no underline on hover */
+        }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
 
-header {
-    background: transparent;
-    color: #000000;
-    padding: 20px 0;
-    z-index: 1000;
-}
-a {
-    text-decoration: none;
-}
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #ffffff;
+        }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #ffffff; /* Match sidebar color */
-    color: #000000; /* Ensure text color is black for contrast */
-}
+        a {
+            text-decoration: none;
+        }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.open-sidebar-btn {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #000000; /* Ensure icon color is black */
-    margin-right: 1rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.logo i {
-    font-size: 26px;
-    margin-right: 3px; /* Space between the cart icon and the text */
-    color: #000000;
-}
-
-.profile-icon {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.profile-icon i {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #000000; /* Ensure icon color is black */
-}
-
-@media (max-width: 768px) {
-    .navbar .profile-icon i {
-        font-size: 1.25rem;
-    }
-}
-
-/* Sidebar Styling */
-.sidebar {
-    height: 100vh; /* Full viewport height */
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #ffffff; /* Set sidebar background to white */
-    color: #000000; /* Ensure text color is black for contrast */
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    z-index: 1000;
-}
-
-.sidebar a {
-    padding: 8px 32px;
-    font-size: 1.25rem;
-    color: #000000; /* Set link color to black for contrast */
-    display: block;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
-}
-
-.sidebar .close-btn {
-    position: absolute;
-    top: 20px; /* Adjust as needed */
-    right: 20px; /* Position at the edge of the sidebar */
-    font-size: 2rem;
-    color: #000000; /* Ensure close button color is black */
-    cursor: pointer;
-    z-index: 1001; /* Ensure it is above other content */
-}
-
-@media (max-width: 768px) {
-    .sidebar a {
-        font-size: 1rem;
-    }
-}
-
-.content {
-    transition: margin-left 0.5s;
-    padding: 16px;
-}
-
-/* Footer Styling */
-footer {
-    background: #000000;
-    color: #f8f9fa;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    font-family: 'Campton', sans-serif;
-    margin-top: 40px;
-}
-
-.footer-upper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px 50px;
-    border-bottom: 1px solid #444;
-}
-
-.footer-address {
-    flex: 1;
-}
-
-.footer-address p {
-    margin: 5px 0;
-    font-size: smaller;
-}
-
-.footer-about {
-    flex: 1;
-}
-
-.footer-about a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    font-size: smaller;
-    margin: 5px 0;
-}
-
-.footer-about a:hover {
-    text-decoration: underline;
-}
-
-.footer-social {
-    flex: 1;
-    text-align: right;
-}
-
-.footer-social .social-icon {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 20px;
-}
-
-.footer-social .social-icon:hover {
-    color: #B7D817;
-}
-
-.footer-bottom {
-    padding: 10px;
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-}
-.tracker {
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
             background-color: #ffffff;
             color: #000000;
-            margin-top: -20px;
-            padding: 40px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-weight: 400;
-            font-size:medium;
         }
-</style>
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .open-sidebar-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #000000;
+            margin-right: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo i {
+            font-size: 26px;
+            margin-right: 3px;
+            color: #000000;
+        }
+
+        .profile-icon {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-icon i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #000000;
+        }
+
+        .sidebar {
+            height: 100vh;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .sidebar a {
+            padding: 8px 32px;
+            font-size: 1.25rem;
+            color: #000000;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #000000;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .sidebar .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .category-list > li {
+    position: relative;
+}
+
+.sidebar .category-list > li > a {
+    padding: 8px 32px;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.sidebar .subcategory-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Initially hidden */
+}
+
+.sidebar .subcategory-list li a {
+    padding: 8px 64px; /* Indented for subcategories */
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.sidebar .subcategory-list li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar .category-list > li:hover .subcategory-list {
+    display: block; /* Show subcategories on hover */
+}
+
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            overflow-y: auto;
+            margin-top: 80px; /* Adjust for header height */
+            margin-bottom: 60px; /* Adjust for footer height */
+        }
+
+        footer {
+            background: #000000;
+            color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            font-family: 'Campton', sans-serif;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .footer-upper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 50px;
+            border-bottom: 1px solid #444;
+        }
+
+        .footer-address {
+            flex: 1;
+        }
+
+        .footer-address p {
+            margin: 5px 0;
+            font-size: smaller;
+        }
+
+        .footer-about {
+            flex: 1;
+        }
+
+        .footer-about a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: smaller;
+            margin: 5px 0;
+        }
+
+        .footer-about a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-social {
+            flex: 1;
+            text-align: right;
+        }
+
+        .footer-social .social-icon {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 20px;
+        }
+
+        .footer-social .social-icon:hover {
+            color: #B7D817;
+        }
+
+        .footer-bottom {
+            padding: 10px;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        #cart-container {
+            width: 100%;
+        }
+
+        .empty-cart {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #999;
+        }
+
+        .cart-items-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 0.75rem; /* Reduced padding */
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            margin-bottom: 0.75rem; /* Reduced margin */
+        }
+
+        .cart-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .cart-item img {
+            border-radius: 4px;
+            margin-right: 0.75rem; /* Reduced margin */
+        }
+
+        .cart-item h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+
+        .cart-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .cart-item .remove-item {
+            margin-left: auto;
+            font-size: 1.25rem;
+            color: #e74c3c;
+            cursor: pointer;
+        }
+
+        .cart-item .remove-item:hover {
+            color: #c0392b;
+        }
+
+        .cart-item .serial-number {
+            font-size: 1rem;
+            color: #333;
+            margin-right: 0.75rem; /* Adjust margin for serial number */
+        }
+        
+.profile-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-icon:hover .dropdown-menu {
+    display: block;
+}
+    </style>
 </head>
 <body>
     <header>
@@ -222,30 +362,52 @@ footer {
                 <span class="open-sidebar-btn" onclick="openSidebar()">
                     <i class="fas fa-bars"></i>
                 </span>
-                <div class="logo">
+                <a href="dashboard.html" class="logo">
                     <i class="bi bi-cart"></i> PeppyProduce
-                </div>
+                </a>
             </div>
             <div class="profile-icon">
                 <i class="fas fa-user"></i>
+                <div class="dropdown-menu">
+                    <a href="profile.html">View Profile</a>
+                    <a href="index.html" onclick="logout()">Logout</a>
+                </div>
             </div>
         </div>
     </header>
-
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">
             <i class="fas fa-times"></i>
         </a>
-        <a href="#categories">Categories</a>
-        <a href="#subscription">Subscription</a>
+        <a href="dashboard.html">Home</a>
+        <ul class="category-list">
+            <li>
+                <a href="#category1">Categories</a>
+                <ul class="subcategory-list">
+                    <li><a href="grocery-list.html">Groceries & Staples</a></li>
+                    <li><a href="processed-list.html">Processed Food</a></li>
+                    <li><a href="veggie-list.html">Veggies & Fruits</a></li>
+                    <li><a href="dairy-list.html">Dairy Products</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a href="subscription.html">Subscription</a>
         <a href="cart.html">Cart <span class="cart-count">0</span></a>
     </div>
+    
 
-    <main>
-        <h1>Your Cart</h1>
-        <div id="cart-items"></div>
-    </main>
+    <div class="main-container">
+        <main>
+            <div id="cart-container">
+                <div id="cart-items">
+                    <!-- Container for cart items -->
+                    <ul id="cart-items-list" class="cart-items-list"></ul>
+                    <div class="empty-cart" id="empty-cart">Your cart is empty.</div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <footer>
         <div class="footer-upper">
@@ -275,28 +437,61 @@ footer {
     </footer>
 
     <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.querySelector(".content").style.marginLeft = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.querySelector(".content").style.marginLeft = "0";
+        }
+
+        document.querySelectorAll('.category-list > li > a').forEach(categoryLink => {
+        categoryLink.addEventListener('click', function(event) {
+            const subcategoryList = this.nextElementSibling;
+            if (subcategoryList && subcategoryList.classList.contains('subcategory-list')) {
+                event.preventDefault();
+                subcategoryList.style.display = subcategoryList.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    });
+
         function renderCart() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
+            const cartItemsList = document.getElementById('cart-items-list');
+            const emptyCartMessage = document.getElementById('empty-cart');
 
-            cart.forEach(item => {
-                // Fetch product details based on item id and display them
+            cartItemsList.innerHTML = '';
+            emptyCartMessage.style.display = cart.length === 0 ? 'block' : 'none';
+
+            cart.forEach((item, index) => {
                 fetch('dairy.json')
                     .then(response => response.json())
                     .then(data => {
                         const product = data.find(p => p.id === item.id);
                         if (product) {
-                            cartItemsContainer.innerHTML += `
-                                <div class="cart-item">
-                                    <img src="${product.image}" alt="${product.name}" width="100">
-                                    <h3>${product.name}</h3>
-                                    <p>$${product.price}</p>
-                                </div>
+                            cartItemsList.innerHTML += `
+                                <li class="cart-item">
+                                    <span class="serial-number">${index + 1}</span>
+                                    <img src="${product.image}" alt="${product.name}" width="80">
+                                    <div>
+                                        <h3>${product.name}</h3>
+                                        <p>$${product.price}</p>
+                                    </div>
+                                    <span class="remove-item" onclick="removeFromCart(${item.id})">&times;</span>
+                                </li>
                             `;
                         }
                     });
             });
+        }
+
+        function removeFromCart(id) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
         }
 
         window.onload = renderCart;

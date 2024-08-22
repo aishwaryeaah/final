@@ -176,66 +176,7 @@ a {
     display: block; /* Show subcategories on hover */
 }
 
-.content {
-    transition: margin-left 0.5s;
-    padding: 16px;
-}
 
-.bg-image {
-    background-image: url('https://images.pexels.com/photos/289368/pexels-photo-289368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: calc(100vh - 200px); /* Full viewport height minus header height */
-    position: relative;
-    z-index: 0;
-}
-
-.bg-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 10, 10, 0.6); /* Whitish overlay */
-    z-index: 1;
-}
-
-.bg-image::after {
-    content: 'Everything You \A Need, All in One \A Place.';
-    position: absolute;
-    top: 50%;
-    left: 10%; /* Adjust this to position the text more to the left */
-    transform: translateY(-50%);
-    color: #B7D817; /* Adjusted text color */
-    font-family: 'Campton', sans-serif;
-    font-size: 3.5rem; /* Make the text bigger */
-    font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-align: left; /* Align text to the left */
-    white-space: pre-line; /* Ensure line breaks are respected */
-    z-index: 2;
-    padding: 0 20px; /* Add some padding to avoid text touching the edge */
-    /* Initial positioning for animation */
-    opacity: 0;
-    transform: translateY(-50%) translateX(-100%);
-    /* Animation properties */
-    animation: fadeIn 2s ease-in-out forwards, slideIn 1s ease-in-out forwards;
-}
-
-/* Keyframes for animations */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    to {
-        transform: translateY(-50%) translateX(0);
-    }
-}
 
 /* Footer Styling */
 footer {
@@ -303,104 +244,54 @@ footer {
     color: #ffffff;
     text-align: center;
 }
-
-
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 50px; /* Space between grid items */
-    margin: 0 50px; /* Center the grid with margins on both sides */
-    max-width: 100vw; /* Limit the maximum width of the container */
-    padding: 20px 20px; /* Add padding on the left and right */
-}
-
-.product {
-    border-radius: 10px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.tabs-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff; /* Ensure background is white for contrast */
-}
-
-
-.product img {
-    width: 100%;
-    height: 200px; /* Fixed height for the image container */
-    object-fit: cover; /* Cover the container while maintaining aspect ratio */
-    margin-bottom: 10px; /* Space between image and text */
-}
-
-
-
-        .product-dropdown {
-            margin-top: 10px;
-        }
-        .product-dropdown select {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
-        /* Button styling */
-        .order-now-btn {
-    display: inline-block;
-    background-color: #6b7e09;
-    color: #000000;
-    padding: 10px 20px; /* Increased padding for a longer button */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    font-size: 16px; /* Optional: Adjust font size if needed */
+    margin: 20px auto; /* Center the container horizontally with auto margins */
+    max-width: 800px; /* Set a maximum width to control the container's width */
+    padding: 0 20px; /* Add some padding on the left and right sides */
 }
 
-        .order-now-btn:hover {
-            background-color: #5a6d07;
-        }
-        #load-more {
-            display: block;
-            background-color: #6b7e09;
-            color: #000000;
-            padding: 8px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-        #load-more:hover {
-            background-color: #5a6d07;
-        }
-        /* Load More Container */
-        .load-more-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 20px auto;
-            width: 70%; /* Adjust width as needed */
-            max-width: 1000px; /* Optional: limit max width */
-        }
-        .load-more-info {
-            flex: 70%;
-            font-size: smaller;
-            color: #000;
-        }
-        .tracker {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 40px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-weight: 400;
-            font-size:medium;
-        }
-        .tracker :hover{
-            color: #B7D817;
-        }
-        
+.tab {
+    flex: 1;
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+}
+
+.tab.active {
+    background-color: #6b7e09;
+    border-bottom: 1px solid #ffffff;
+}
+
+.tab .arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    transition: transform 0.3s;
+}
+
+.tab.active .arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
 .profile-icon {
     position: relative;
     display: inline-block;
@@ -432,6 +323,8 @@ footer {
 .profile-icon:hover .dropdown-menu {
     display: block;
 }
+
+
     </style>
 </head>
 <body>
@@ -479,25 +372,27 @@ footer {
     </div>
 
 
-    <div class="tracker">
-        <a href="dashboard.html">Home</a> > <a href="dairy-list.html">Dairy Products</a>
-    </div>
-
-    <div class="dashboard-content">
-        <div class="main-section">
-            <div class="product-container" id="product-container">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-            <div class="load-more-container">
-                <div class="load-more-info">
-                    <span id="visible-products">0</span> / <span id="total-products">0</span> products visible
-                </div>
-                <button id="load-more" class="order-now-btn">Load More</button>
-            </div>
+    <div class="tabs-container">
+        <div class="tab active" data-target="active-subscriptions">
+            Active Subscriptions
+            <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+        </div>
+        <div class="tab" data-target="past-subscriptions">
+            Past Subscriptions
+            <span class="arrow"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    
+    <div id="active-subscriptions" class="tab-content active">
+        <h2>Active Subscriptions</h2>
+        <div id="active-list"></div>
+    </div>
+
+    <div id="past-subscriptions" class="tab-content">
+        <h2>Past Subscriptions</h2>
+        <div id="past-list"></div>
+    </div>
+
 
     <footer>
         <div class="footer-upper">
@@ -534,88 +429,56 @@ footer {
 
         function closeSidebar() {
             document.getElementById("mySidebar").style.width = "0";
-            document.querySelector(".content").style.marginLeft= "0";
+            document.querySelector(".content").style.marginLeft = "0";
         }
 
         document.querySelectorAll('.category-list > li > a').forEach(categoryLink => {
-        categoryLink.addEventListener('click', function(event) {
-            const subcategoryList = this.nextElementSibling;
-            if (subcategoryList && subcategoryList.classList.contains('subcategory-list')) {
-                event.preventDefault();
-                subcategoryList.style.display = subcategoryList.style.display === 'block' ? 'none' : 'block';
-            }
+            categoryLink.addEventListener('click', function(event) {
+                const subcategoryList = this.nextElementSibling;
+                if (subcategoryList && subcategoryList.classList.contains('subcategory-list')) {
+                    event.preventDefault();
+                    subcategoryList.style.display = subcategoryList.style.display === 'block' ? 'none' : 'block';
+                }
+            });
         });
-    });
 
-        let currentPage = 0;
-        const itemsPerPage = 6;
-        let products = [];
-    
-        function renderProducts() {
-            const productContainer = document.getElementById('product-container');
-            const startIndex = currentPage * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, products.length);
-
-            for (let i = startIndex; i < endIndex; i++) {
-                const product = products[i];
-                const productDiv = document.createElement('div');
-                productDiv.classList.add('product');
-                productDiv.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <h4><a href="dairy-details.html?id=${product.id}">${product.name}</a></h4>
-                    <p>Price: ${product.price}</p>
-                    <a class="order-now-btn" href="dairy-details.html?id=${product.id}">View</a>
-                `;
-                productContainer.appendChild(productDiv);
-
-                productDiv.querySelector('.order-now-btn').addEventListener('click', () => {
-                    addToCart(product);
-                });
-            }
-
-            updateProductCount(endIndex);
-            updateLoadMoreButton(endIndex);
-        }
-    
-        function loadMoreProducts() {
-            currentPage++;
-            renderProducts();
-        }
-    
-        function showLessProducts() {
-            currentPage = Math.max(0, currentPage - 1);
-            document.getElementById('product-container').innerHTML = '';
-            renderProducts();
-        }
-    
-        function updateProductCount(visibleItems) {
-            document.getElementById('visible-products').textContent = visibleItems;
-            document.getElementById('total-products').textContent = products.length;
-        }
-    
-        function updateLoadMoreButton(visibleItems) {
-            const loadMoreButton = document.getElementById('load-more');
-            const allProductsLoaded = visibleItems >= products.length;
-    
-            if (allProductsLoaded) {
-                loadMoreButton.textContent = 'Show Less';
-                loadMoreButton.removeEventListener('click', loadMoreProducts);
-                loadMoreButton.addEventListener('click', showLessProducts);
-            } else {
-                loadMoreButton.textContent = 'Load More';
-                loadMoreButton.removeEventListener('click', showLessProducts);
-                loadMoreButton.addEventListener('click', loadMoreProducts);
-            }
-        }
-    
-        fetch('dairy.json')
+        fetch('customer.json')
             .then(response => response.json())
             .then(data => {
-                products = data;
-                renderProducts();
+                // Populate active subscriptions
+                const activeList = document.getElementById('active-list');
+                data.activeSubscriptions.forEach(subscription => {
+                    const item = document.createElement('div');
+                    item.className = 'subscription-item';
+                    item.innerHTML = `
+                        <strong>Product:</strong> ${subscription.productName}<br>
+                        <strong>Price:</strong> ${subscription.price}<br>
+                        <strong>Subscription Type:</strong> ${subscription.subscriptionType}<br>
+                        <strong>Start Date:</strong> ${subscription.startDate}<br>
+                        <strong>End Date:</strong> ${subscription.endDate}
+                    `;
+                    activeList.appendChild(item);
+                });
+
+                // Populate past subscriptions
+                const pastList = document.getElementById('past-list');
+                data.pastSubscriptions.forEach(subscription => {
+                    const item = document.createElement('div');
+                    item.className = 'subscription-item';
+                    item.innerHTML = `
+                        <strong>Product:</strong> ${subscription.productName}<br>
+                        <strong>Price:</strong> ${subscription.price}<br>
+                        <strong>Subscription Type:</strong> ${subscription.subscriptionType}<br>
+                        <strong>Start Date:</strong> ${subscription.startDate}<br>
+                        <strong>End Date:</strong> ${subscription.endDate}
+                    `;
+                    pastList.appendChild(item);
+                });
             })
-            .catch(error => console.error('Error fetching products:', error));
-    
+            .catch(error => {
+                console.error('Error fetching customer data:', error);
+            });
+
         function updateCartCount() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const cartCountElem = document.getElementById('cart-count');
@@ -629,6 +492,17 @@ footer {
             redirectBasedOnRole();
         });
 
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                this.classList.add('active');
+                const target = this.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+            });
+        });
     </script>
 </body>
 </html>

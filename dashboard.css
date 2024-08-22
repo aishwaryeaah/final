@@ -23,11 +23,14 @@ html, body {
 }
 
 header {
-    background: transparent;
-    color: #000000;
-    padding: 20px 0;
+    position: sticky;
+    top: 0;
     z-index: 1000;
+    margin: 0;
+    padding: 20px 0;
+    background-color: #ffffff;
 }
+
 
 .navbar {
     display: flex;
@@ -123,6 +126,48 @@ header {
     }
 }
 
+
+.sidebar .category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .category-list > li {
+    position: relative;
+}
+
+.sidebar .category-list > li > a {
+    padding: 8px 32px;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.sidebar .subcategory-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Initially hidden */
+}
+
+.sidebar .subcategory-list li a {
+    padding: 8px 64px; /* Indented for subcategories */
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.sidebar .subcategory-list li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar .category-list > li:hover .subcategory-list {
+    display: block; /* Show subcategories on hover */
+}
+
 .content {
     transition: margin-left 0.5s;
     padding: 16px;
@@ -149,35 +194,42 @@ header {
     z-index: 1;
 }
 
+
 .bg-image::after {
     content: 'Everything You \A Need, All in One \A Place.';
     position: absolute;
     top: 50%;
-    left: 10%;
-    transform: translate(0, -50%);
+    left: 10%; /* Adjust this to position the text more to the left */
+    transform: translateY(-50%);
     color: #B7D817; /* Adjusted text color */
     font-family: 'Campton', sans-serif;
     font-size: 3.5rem; /* Make the text bigger */
     font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-align: left;
+    text-align: left; /* Align text to the left */
     white-space: pre-line; /* Ensure line breaks are respected */
     z-index: 2;
-    padding-left: 20px; /* Add some padding to avoid text touching the edge */
-    animation: fadeIn 2s ease-in-out, slideIn 1s ease-in-out;
+    padding: 0 20px; /* Add some padding to avoid text touching the edge */
+    /* Initial positioning for animation */
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%);
+    /* Animation properties */
+    animation: fadeIn 2s ease-in-out forwards, slideIn 1s ease-in-out forwards;
 }
 
-/* Fade-in animation */
+/* Keyframes for animations */
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
-/* Slide-in animation */
 @keyframes slideIn {
-    0% { transform: translate(-50%, -60%); }
-    100% { transform: translate(-50%, -50%); }
+    to {
+        transform: translateY(-50%) translateX(0);
+    }
 }
+
 
 /* Footer Styling */
 footer {
@@ -246,9 +298,10 @@ footer {
     text-align: center;
 }
 
+/* Container for the tabs */
 .tabs-container {
     width: 95%; /* Adjust width as needed */
-    height: 80vh; /* Full viewport height */
+    height: 80vh; /* Adjust height as needed */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically */
@@ -256,23 +309,22 @@ footer {
     margin-left: 2.5%;
 }
 
+/* Grid layout for the tabs */
 .tabs {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: center; /* Center tabs horizontally */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 20px; /* Space between tabs */
-    margin: 20px; /* Margin around tabs */
     width: 100%; /* Ensure it takes up full width */
-    max-width: 1200px; /* Optional: Limit max-width to prevent excessive stretching */
+    max-width: 100vw; /* Optional: Limit max-width to prevent excessive stretching */
 }
 
+/* Individual tab styling */
 .tab {
     position: relative;
     background: #333;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    flex: 1 1 calc(25% - 20px); /* Four tabs in a row */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -282,7 +334,6 @@ footer {
     overflow: hidden;
     color: #ffffff;
 }
-
 
 .tab-image {
     position: absolute;
@@ -336,13 +387,13 @@ footer {
     z-index: 3; /* Ensure button is on top */
 }
 
-
 .order-now-btn:hover {
-    background-color: #B7D817; /* Slightly darker on hover */
+    background-color: #A8C417; /* Slightly darker on hover */
     color: #000000;
     text-decoration: none;
-
 }
+
+
 
 .admin-product-detail .tab-content-wrapper {
     display: flex;
@@ -357,4 +408,36 @@ footer {
 .admin-product-detail .tab-content {
     flex: 2;
     padding: 20px;
+}
+
+.profile-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-icon:hover .dropdown-menu {
+    display: block;
 }

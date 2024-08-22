@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Campton, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .profile-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .profile-info, .subscriptions {
+            margin-bottom: 20px;
+        }
+
+        .profile-info h2, .subscriptions h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .profile-info p {
+            font-size: 1rem;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .subscriptions h3 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .subscription-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .subscription-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="bi bi-cart"></i> PeppyProduce
+            </div>
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="profile-menu">
+                <i class="bi bi-person-circle" onclick="toggleProfileMenu()"></i>
+                <div id="profile-dropdown" class="dropdown-content">
+                    <a href="profile.html">View Profile</a>
+                    <a href="#" onclick="handleLogout()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-info">
+            <h2>Profile Information</h2>
+            <p><strong>First Name:</strong> <span id="first-name"></span></p>
+            <p><strong>Last Name:</strong> <span id="last-name"></span></p>
+            <p><strong>Address:</strong> <span id="address"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Phone Number:</strong> <span id="phone-number"></span></p>
+        </div>
+
+        <div class="subscriptions">
+            <h2>Active Subscriptions</h2>
+            <div id="active-subscriptions"></div>
+        </div>
+
+        <div class="subscriptions">
+            <h2>Past Subscriptions</h2>
+            <div id="past-subscriptions"></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchUserData() {
+            try {
+                const response = await fetch('customer.json');
+                const data = await response.json();
+                
+                // Assuming user data is in an array and you need the first item
+                return data[0]; 
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                return null;
+            }
+        }
+
+        async function renderProfile() {
+            const user = await fetchUserData();
+
+            if (!user) {
+                document.querySelector('.profile-container').innerHTML = '<p>Error loading user data.</p>';
+                return;
+            }
+
+            // Populate profile info
+            document.getElementById('first-name').textContent = user.firstName;
+            document.getElementById('last-name').textContent = user.lastName;
+            document.getElementById('address').textContent = user.address;
+            document.getElementById('email').textContent = user.email;
+            document.getElementById('phone-number').textContent = user.phoneNumber;
+
+            // Populate active subscriptions
+            const activeSubscriptionsContainer = document.getElementById('active-subscriptions');
+            user.activeSubscriptions.forEach(sub => {
+                activeSubscriptionsContainer.innerHTML += `
+                    <div class="subscription-item">
+                        <p><strong>Product Name:</strong> ${sub.productName}</p>
+                        <p><strong>Price:</strong> ${sub.price}</p>
+                        <p><strong>Subscription Type:</strong> ${sub.subscriptionType}</p>
+                        <p><strong>Start Date:</strong> ${sub.startDate}</p>
+                        <p><strong>End Date:</strong> ${sub.endDate}</p>
+                    </div>
+                `;
+            });
+
+            // Populate past subscriptions
+            const pastSubscriptionsContainer = document.getElementById('past-subscriptions');
+            user.pastSubscriptions.forEach(sub => {
+                pastSubscriptionsContainer.innerHTML += `
+                    <div class="subscription-item">
+                        <p><strong>Product Name:</strong> ${sub.productName}</p>
+                        <p><strong>Price:</strong> ${sub.price}</p>
+                        <p><strong>Subscription Type:</strong> ${sub.subscriptionType}</p>
+                        <p><strong>Start Date:</strong> ${sub.startDate}</p>
+                        <p><strong>End Date:</strong> ${sub.endDate}</p>
+                    </div>
+                `;
+            });
+        }
+
+        window.onload = renderProfile;
+    </script>
+</body>
+</html>
