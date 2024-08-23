@@ -447,45 +447,44 @@
             document.querySelector(".content").style.marginLeft = "0";
         }
 
-        document.querySelectorAll('.category-list > li > a').forEach(categoryLink => {
-        categoryLink.addEventListener('click', function(event) {
-            const subcategoryList = this.nextElementSibling;
-            if (subcategoryList && subcategoryList.classList.contains('subcategory-list')) {
-                event.preventDefault();
-                subcategoryList.style.display = subcategoryList.style.display === 'block' ? 'none' : 'block';
-            }
-        });
-    });
-
-        function renderCart() {
+        function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartItemsList = document.getElementById('cart-items-list');
-            const emptyCartMessage = document.getElementById('empty-cart');
-
-            cartItemsList.innerHTML = '';
-            emptyCartMessage.style.display = cart.length === 0 ? 'block' : 'none';
-
-            cart.forEach((item, index) => {
-                fetch('dairy.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const product = data.find(p => p.id === item.id);
-                        if (product) {
-                            cartItemsList.innerHTML += `
-                                <li class="cart-item">
-                                    <span class="serial-number">${index + 1}</span>
-                                    <img src="${product.image}" alt="${product.name}" width="80">
-                                    <div>
-                                        <h3>${product.name}</h3>
-                                        <p>$${product.price}</p>
-                                    </div>
-                                    <span class="remove-item" onclick="removeFromCart(${item.id})">&times;</span>
-                                </li>
-                            `;
-                        }
-                    });
-            });
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.length;
         }
+
+function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsList = document.getElementById('cart-items-list');
+    const emptyCartMessage = document.getElementById('empty-cart');
+
+    cartItemsList.innerHTML = '';
+    emptyCartMessage.style.display = cart.length === 0 ? 'block' : 'none';
+
+    cart.forEach((item, index) => {
+        fetch('dairy.json')
+            .then(response => response.json())
+            .then(data => {
+                const product = data.find(p => p.id === item.id);
+                if (product) {
+                    cartItemsList.innerHTML += `
+                        <li class="cart-item">
+                            <span class="serial-number">${index + 1}</span>
+                            <img src="${product.image}" alt="${product.name}" width="80">
+                            <div>
+                                <h3>${product.name}</h3>
+                                <p>${product.price}</p>
+                                <p>Subscription: ${item.subscriptionType}</p>
+                            </div>
+                            <span class="remove-item" onclick="removeFromCart(${item.id})">&times;</span>
+                        </li>
+                    `;
+                }
+            });
+    });
+    updateCartCount();
+}
+
 
         function removeFromCart(id) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -496,5 +495,6 @@
 
         window.onload = renderCart;
     </script>
+    
 </body>
 </html>

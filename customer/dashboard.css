@@ -301,7 +301,7 @@ footer {
 /* Container for the tabs */
 .tabs-container {
     width: 95%; /* Adjust width as needed */
-    height: 80vh; /* Adjust height as needed */
+    height: 90vh; /* Adjust height as needed */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically */
@@ -441,3 +441,146 @@ footer {
 .profile-icon:hover .dropdown-menu {
     display: block;
 }
+
+
+#daily-delivery {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+#daily-delivery h2 {
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.image-instructions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center the grid container */
+}
+
+.instruction {
+    text-align: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.instruction i {
+    font-size: 2rem;
+    color: #B7D817;
+    margin-bottom: 0.5rem;
+}
+
+.instruction p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}
+
+#how-it-works {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+#how-it-works h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.how-it-works-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.step {
+    text-align: center;
+    max-width: 250px; /* Adjust as needed */
+    flex: 1 1 calc(25% - 2rem);
+}
+
+.step-icon {
+    font-size: 100px; /* Adjust size as needed */
+    color: #B7D817;
+    margin-bottom: 1rem;
+}
+
+.step p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}
+
+#customer-reviews {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #customer-reviews h2 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+  
+  .reviews-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .reviews-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+  }
+  
+  .reviews-slide {
+    display: flex;
+    min-width: 100%;
+  }
+  
+  .review {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .nav-btn {
+    background: #B7D817;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .prev {
+    position: absolute;
+    left: 10px;
+  }
+  
+  .next {
+    position: absolute;
+    right: 10px;
+  }
+  

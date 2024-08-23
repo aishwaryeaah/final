@@ -81,3 +81,39 @@ function toggleSidebar() {
     }
 }
 
+async function handleLogin() {
+    console.log("handleLogin function called"); // Debug line
+    const emailInput = document.getElementById("email").value.trim();
+    console.log("Email entered:", emailInput); // Debug line
+    
+    try {
+        const response = await fetch('customer.json');
+        if (!response.ok) {
+            throw new Error("Network response was not ok.");
+        }
+        const customers = await response.json();
+        console.log("Fetched customers:", customers); // Debug line
+        
+        const customer = customers.find(customer => customer.email === emailInput);
+        console.log("Customer found:", customer); // Debug line
+        
+        if (customer) {
+            const domain = emailInput.split('@')[1];
+            console.log("Email domain:", domain); // Debug line
+            if (domain === "peppyproduce.com") {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                window.location.href = 'customer/dashboard.html';
+            }
+        } else {
+            alert("Email not found. Please check your email or sign up.");
+        }
+    } catch (error) {
+        console.error("Error fetching customer data:", error);
+        alert("There was an error processing your request. Please try again later.");
+    }
+    
+    return false; // Prevent form submission
+}
+
+
