@@ -6,7 +6,6 @@
     <title>Main Dashboard</title>
     <script src="logout-func.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="cart.js" defer></script> <!-- Include the cart script -->
     <style>
         body {
     font-family: Campton, Arial, sans-serif;
@@ -29,7 +28,7 @@ html, body {
     height: 100%;
 }
 
-        header {
+header {
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -37,6 +36,7 @@ html, body {
             padding: 20px 0;
             background-color: #ffffff;
         }
+
 a {
     text-decoration: none;
 }
@@ -176,7 +176,10 @@ a {
     display: block; /* Show subcategories on hover */
 }
 
-
+.content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
 
 /* Footer Styling */
 footer {
@@ -244,52 +247,131 @@ footer {
     color: #ffffff;
     text-align: center;
 }
-.tabs-container {
+.tracker {
+            background-color: #ffffff;
+            color: #000000;
+            margin-top: -20px;
+            padding: 40px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            font-weight: 400;
+            font-size:medium;
+        }
+
+        .dashboard-content {
     display: flex;
-    cursor: pointer;
-    margin: 20px auto; /* Center the container horizontally with auto margins */
-    max-width: 800px; /* Set a maximum width to control the container's width */
-    padding: 0 20px; /* Add some padding on the left and right sides */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: calc(100vh - 60px); /* Adjust based on header height */
 }
 
-.tab {
-    flex: 1;
-    padding: 10px;
-    background-color: #f8f9fa;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px 5px 0 0;
-    position: relative;
-}
-
-.tab.active {
-    background-color: #6b7e09;
-    border-bottom: 1px solid #ffffff;
-}
-
-.tab .arrow {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1rem;
-    transition: transform 0.3s;
-}
-
-.tab.active .arrow {
-    transform: translateY(-50%) rotate(180deg);
-}
-
-.tab-content {
-    display: none;
+.product-container {
+    margin-top: -20px;
+    display: flex;
+    flex-direction: row;
     padding: 20px;
+    width: 1000px; /* Adjust width as needed */
+    max-width: 100%;
+    height: 400px;
     border: 1px solid #ddd;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Slightly different background for contrast */
+    overflow: hidden;
 }
 
-.tab-content.active {
+.product-image {
+    flex: 0 0 45%;
+    overflow: hidden;
+    border-radius: 8px 0 0 8px; /* Rounded corners on left side */
+    background-color: #fff; /* Background color to match image container */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    flex: 1;
+    margin-left: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out details and button */
+}
+
+.product-details h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600; /* Make the title bold */
+}
+
+.product-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px; /* Add spacing between paragraphs */
+}
+
+.subscription-options {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9f5ff; /* Light blue background for the options */
+    border: 1px solid #cce4ff;
+    border-radius: 5px;
+}
+
+.subscription-options label {
     display: block;
+    font-weight: bold;
+}
+
+.subscription-options select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.custom-dates {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fef3e6; /* Light orange background */
+    border: 1px solid #f5d1a0;
+    border-radius: 5px;
+}
+
+.custom-dates label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.custom-dates input {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    background-color: #B7D817; /* Matching brand color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9acb14; /* Darker shade on hover */
 }
 
 .profile-icon {
@@ -324,7 +406,6 @@ footer {
     display: block;
 }
 
-
     </style>
 </head>
 <body>
@@ -348,7 +429,6 @@ footer {
         </div>
     </header>
 
-    <div class="bg-image"></div>
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">
@@ -368,32 +448,20 @@ footer {
         </ul>
         <a href="subscription.html">Subscription</a>
         <a href="cart.html">Cart <span class="cart-count">0</span></a>
-
     </div>
 
+    <div class="tracker">
+        <a href="dashboard.html">Home</a> > <a href="processed-list.html">Processed Food Products</a> > <span id="product-name">Product Name</span>
+    </div>
 
-    <div class="tabs-container">
-        <div class="tab active" data-target="active-subscriptions">
-            Active Subscriptions
-            <span class="arrow"><i class="fas fa-chevron-down"></i></span>
+    <div class="dashboard-content">
+        <div class="main-section">
+            <div class="product-container" id="product-detail">
+                <!-- Product detail will be dynamically inserted here -->
+            </div>
         </div>
-        <div class="tab" data-target="past-subscriptions">
-            Past Subscriptions
-            <span class="arrow"><i class="fas fa-chevron-down"></i></span>
-        </div>
     </div>
-
-    <div id="active-subscriptions" class="tab-content active">
-        <h2>Active Subscriptions</h2>
-        <div id="active-list"></div>
-    </div>
-
-    <div id="past-subscriptions" class="tab-content">
-        <h2>Past Subscriptions</h2>
-        <div id="past-list"></div>
-    </div>
-
-
+    
     <footer>
         <div class="footer-upper">
             <div class="footer-address">
@@ -429,94 +497,121 @@ footer {
 
         function closeSidebar() {
             document.getElementById("mySidebar").style.width = "0";
-            document.querySelector(".content").style.marginLeft = "0";
+            document.querySelector(".content").style.marginLeft= "0";
         }
 
-        document.querySelectorAll('.category-list > li > a').forEach(categoryLink => {
-            categoryLink.addEventListener('click', function(event) {
-                const subcategoryList = this.nextElementSibling;
-                if (subcategoryList && subcategoryList.classList.contains('subcategory-list')) {
-                    event.preventDefault();
-                    subcategoryList.style.display = subcategoryList.style.display === 'block' ? 'none' : 'block';
-                }
-            });
-        });
+        function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
-        fetch('customer.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Dynamically populate the content
-        populateSubscriptions(data);
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
+function renderProductDetail(product) {
+    const productContainer = document.getElementById('product-detail');
 
-function populateSubscriptions(data) {
-    const activeList = document.getElementById('active-list');
-    const pastList = document.getElementById('past-list');
+    productContainer.innerHTML = `
+        <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+        </div>
+        <div class="product-details">
+            <h2 id="product-name">${product.name}</h2>
+            <p id="product-price">${product.price}</p>
+            <p id="product-description">${product.description}</p>
+            <div class="subscription-options">
+                <label for="subscription-type">Subscription Type:</label>
+                <select id="subscription-type">
+                    <option value="single-day">Single Day</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="bi-weekly">Bi-Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+            <div id="custom-dates" class="custom-dates">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+            </div>
+            <button id="add-to-cart-btn">Add to Cart</button>
+        </div>
+    `;
 
-    // Clear any existing content
-    activeList.innerHTML = '';
-    pastList.innerHTML = '';
-
-    data.activeSubscriptions.forEach(subscription => {
-        const item = document.createElement('div');
-        item.className = 'subscription-item';
-        item.innerHTML = `
-            <strong>Product:</strong> ${subscription.productName}<br>
-            <strong>Price:</strong> ${subscription.price}<br>
-            <strong>Subscription Type:</strong> ${subscription.subscriptionType}<br>
-            <strong>Start Date:</strong> ${subscription.startDate}<br>
-            <strong>End Date:</strong> ${subscription.endDate}
-        `;
-        activeList.appendChild(item);
-    });
-
-    data.pastSubscriptions.forEach(subscription => {
-        const item = document.createElement('div');
-        item.className = 'subscription-item';
-        item.innerHTML = `
-            <strong>Product:</strong> ${subscription.productName}<br>
-            <strong>Price:</strong> ${subscription.price}<br>
-            <strong>Subscription Type:</strong> ${subscription.subscriptionType}<br>
-            <strong>Start Date:</strong> ${subscription.startDate}<br>
-            <strong>End Date:</strong> ${subscription.endDate}
-        `;
-        pastList.appendChild(item);
+    document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+        const subscriptionType = document.getElementById('subscription-type').value;
+        addToCart(product.id, subscriptionType);
     });
 }
 
 
-        function updateCartCount() {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            const cartCountElem = document.getElementById('cart-count');
-            if (cartCountElem) {
-                cartCountElem.textContent = cartItems.length;
-            }
+fetch('processed.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Log the data to check its structure
+        const productId = getQueryParam('id');
+        if (!productId) {
+            document.getElementById('product-detail').innerHTML = 'Product ID not provided.';
+            return;
         }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            updateCartCount();
-            redirectBasedOnRole();
-        });
 
-        // Tab functionality
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                this.classList.add('active');
-                const target = this.getAttribute('data-target');
-                document.getElementById(target).classList.add('active');
-            });
+        const product = data.find(p => p.id === parseInt(productId));
+        if (product) {
+            renderProductDetail(product);
+        } else {
+            document.getElementById('product-detail').innerHTML = 'Product not found.';
+        }
+    })
+    .catch(error => console.error('Error fetching product details:', error));
+
+function handleSubscriptionChange() {
+    var subscriptionType = document.getElementById("subscription-type").value;
+    var customDates = document.getElementById("custom-dates");
+    
+    if (subscriptionType === "custom") {
+        customDates.style.display = "block";
+    } else {
+        customDates.style.display = "none";
+    }
+}
+
+function addToCart(productId, subscriptionType) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProductIndex = cart.findIndex(item => item.id === productId);
+
+    if (existingProductIndex !== -1) {
+        // Item already in the cart
+        cart[existingProductIndex].quantity += 1;
+        alert('Item is already in the cart.');
+    } else {
+        // New item added to the cart
+        cart.push({
+            id: productId,
+            subscriptionType: subscriptionType,
+            quantity: 1
         });
+        alert('Item added to the cart.');
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+
+
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = cart.length;
+    document.querySelector('.cart-count').textContent = cartCount; // Update cart count in the sidebar
+}
+
+// Call updateCartCount() on page load to initialize the count
+window.onload = function() {
+    updateCartCount();
+};
+
+
+
+
     </script>
 </body>
 </html>
