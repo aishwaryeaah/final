@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 21,
         "name": "Potato Chips",
         "image": "./snacks/1.jpg",
         "price": "₹120.00",
@@ -8,7 +8,7 @@
         "detailImage": "snacks-potato-chips-detail.jpg"
     },
     {
-        "id": 2,
+        "id": 22,
         "name": "Chocolate Cake",
         "image": "./snacks/2.jpg",
         "price": "₹250.00",
@@ -16,7 +16,7 @@
         "detailImage": "snacks-chocolate-cake-detail.jpg"
     },
     {
-        "id": 3,
+        "id": 23,
         "name": "Whole Wheat Bread",
         "image": "./snacks/3.jpg",
         "price": "₹150.00",
@@ -24,7 +24,7 @@
         "detailImage": "snacks-whole-wheat-bread-detail.jpg"
     },
     {
-        "id": 4,
+        "id": 24,
         "name": "White Bread",
         "image": "./snacks/4.jpg",
         "price": "₹130.00",
@@ -32,7 +32,7 @@
         "detailImage": "snacks-white-bread-detail.jpg"
     },
     {
-        "id": 5,
+        "id": 25,
         "name": "Vanilla Cake",
         "image": "./snacks/5.jpg",
         "price": "₹220.00",
@@ -40,7 +40,7 @@
         "detailImage": "snacks-vanilla-cake-detail.jpg"
     },
     {
-        "id": 6,
+        "id": 26,
         "name": "Maggi Noodles",
         "image": "./snacks/6.jpg",
         "price": "₹100.00",
@@ -48,7 +48,7 @@
         "detailImage": "snacks-maggi-noodles-detail.jpg"
     },
     {
-        "id": 7,
+        "id": 27,
         "name": "Potato Chips (Family Pack)",
         "image": "./snacks/7.jpg",
         "price": "₹180.00",
@@ -56,7 +56,7 @@
         "detailImage": "snacks-potato-chips-family-pack-detail.jpg"
     },
     {
-        "id": 8,
+        "id": 28,
         "name": "Fruit Cake",
         "image": "./snacks/8.jpg",
         "price": "₹270.00",
@@ -64,7 +64,7 @@
         "detailImage": "snacks-fruit-cake-detail.jpg"
     },
     {
-        "id": 9,
+        "id": 29,
         "name": "Multigrain Bread",
         "image": "./snacks/9.jpg",
         "price": "₹160.00",

@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 11,
         "name": "Wheat Atta",
         "image": "./grocery/1.jpg",
         "price": "₹120.00",
@@ -8,7 +8,7 @@
         "detailImage": "grocery-wheat-atta-detail.jpg"
     },
     {
-        "id": 2,
+        "id": 12,
         "name": "Basmati Rice",
         "image": "./grocery/2.jpg",
         "price": "₹250.00",
@@ -16,7 +16,7 @@
         "detailImage": "grocery-basmati-rice-detail.jpg"
     },
     {
-        "id": 3,
+        "id": 13,
         "name": "Red Lentils (Masoor Dal)",
         "image": "./grocery/3.jpg",
         "price": "₹180.00",
@@ -24,7 +24,7 @@
         "detailImage": "grocery-red-lentils-detail.jpg"
     },
     {
-        "id": 4,
+        "id": 14,
         "name": "Toor Dal",
         "image": "./grocery/4.jpg",
         "price": "₹220.00",
@@ -32,7 +32,7 @@
         "detailImage": "grocery-toor-dal-detail.jpg"
     },
     {
-        "id": 5,
+        "id": 15,
         "name": "Chana Dal",
         "image": "./grocery/5.jpg",
         "price": "₹200.00",
@@ -40,7 +40,7 @@
         "detailImage": "grocery-chana-dal-detail.jpg"
     },
     {
-        "id": 6,
+        "id": 16,
         "name": "Maida",
         "image": "./grocery/6.jpg",
         "price": "₹130.00",
@@ -48,7 +48,7 @@
         "detailImage": "grocery-maida-detail.jpg"
     },
     {
-        "id": 7,
+        "id": 17,
         "name": "Sunflower Oil",
         "image": "./grocery/7.jpg",
         "price": "₹280.00",
@@ -56,7 +56,7 @@
         "detailImage": "grocery-sunflower-oil-detail.jpg"
     },
     {
-        "id": 8,
+        "id": 18,
         "name": "Mustard Oil",
         "image": "./grocery/8.jpg",
         "price": "₹250.00",
@@ -64,7 +64,7 @@
         "detailImage": "grocery-mustard-oil-detail.jpg"
     },
     {
-        "id": 9,
+        "id": 19,
         "name": "Vegetable Oil",
         "image": "./grocery/9.jpg",
         "price": "₹220.00",

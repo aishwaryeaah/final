@@ -101,7 +101,7 @@ async function handleLogin() {
             const domain = emailInput.split('@')[1];
             console.log("Email domain:", domain); // Debug line
             if (domain === "peppyproduce.com") {
-                window.location.href = 'admin-dashboard.html';
+                window.location.href = 'admin/dashboard.html';
             } else {
                 window.location.href = 'customer/dashboard.html';
             }

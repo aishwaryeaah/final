@@ -11,6 +11,7 @@
         body {
     font-family: Campton, Arial, sans-serif;
     margin: 0;
+    background-color: #FFF5EE;
     padding: 0;
 }
 
@@ -29,14 +30,15 @@ html, body {
     height: 100%;
 }
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            margin: 0;
-            padding: 20px 0;
-            background-color: #ffffff;
-        }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 20px 0;
+    background-color: #FFF5EE;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
 a {
     text-decoration: none;
 }
@@ -46,7 +48,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #ffffff; /* Match sidebar color */
+    background-color: #FFF5EE; /* Match sidebar color */
     color: #000000; /* Ensure text color is black for contrast */
 }
 
@@ -99,12 +101,14 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #ffffff; /* Set sidebar background to white */
+    background-color: #FFF5EE; /* Set sidebar background to white */
     color: #000000; /* Ensure text color is black for contrast */
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
     z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+    
 }
 
 .sidebar a {
@@ -116,7 +120,8 @@ a {
 }
 
 .sidebar a:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
+    background-color: #FFF5EE; /* Light gray background on hover */
+    color: #B7D817;
 }
 
 .sidebar .close-btn {
@@ -141,6 +146,11 @@ a {
     margin: 0;
 }
 
+.sidebar .category-list :hover {
+    background-color: #B7D817;
+    color: #000000;
+}
+
 .sidebar .category-list > li {
     position: relative;
 }
@@ -160,6 +170,7 @@ a {
     display: none; /* Initially hidden */
 }
 
+
 .sidebar .subcategory-list li a {
     padding: 8px 64px; /* Indented for subcategories */
     display: block;
@@ -169,7 +180,7 @@ a {
 }
 
 .sidebar .subcategory-list li a:hover {
-    background-color: #f0f0f0;
+    background-color: #5a6d07;
 }
 
 .sidebar .category-list > li:hover .subcategory-list {
@@ -271,7 +282,7 @@ footer {
 
 .footer-about a {
     display: block;
-    color: #fff;
+    color: #FFF5EE;
     text-decoration: none;
     font-size: smaller;
     margin: 5px 0;
@@ -287,7 +298,7 @@ footer {
 }
 
 .footer-social .social-icon {
-    color: #fff;
+    color: #FFF5EE;
     text-decoration: none;
     margin-left: 15px;
     font-size: 20px;
@@ -300,7 +311,7 @@ footer {
 .footer-bottom {
     padding: 10px;
     background-color: #000000;
-    color: #ffffff;
+    color: #FFF5EE;
     text-align: center;
 }
 
@@ -317,13 +328,13 @@ footer {
 .product {
     border-radius: 10px;
     box-sizing: border-box; /* Ensure padding and border are included in the width */
-    border: 1px solid #ddd;
+    border: 1px solid #FFF5EE;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff; /* Ensure background is white for contrast */
+    background-color: #FFEFD5; /* Ensure background is white for contrast */
 }
 
 
@@ -389,7 +400,7 @@ footer {
             color: #000;
         }
         .tracker {
-            background-color: #ffffff;
+            background-color: #FFF5EE;
             color: #000000;
             padding: 40px;
             margin-bottom: 20px;
@@ -411,8 +422,8 @@ footer {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #FFF5EE;
+    border: 1px solid #FFF5EE;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     min-width: 150px;
@@ -426,7 +437,7 @@ footer {
 }
 
 .dropdown-menu a:hover {
-    background-color: #f0f0f0;
+    background-color: #B7D817;
 }
 
 .profile-icon:hover .dropdown-menu {
@@ -461,8 +472,8 @@ footer {
         <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">
             <i class="fas fa-times"></i>
         </a>
-        <a href="dashboard.html">Home</a>
         <ul class="category-list">
+        <a href="dashboard.html">Home</a>
             <li>
                 <a href="#category1">Categories</a>
                 <ul class="subcategory-list">
@@ -472,10 +483,9 @@ footer {
                     <li><a href="dairy-list.html">Dairy Products</a></li>
                 </ul>
             </li>
-        </ul>
         <a href="subscription.html">Subscription</a>
         <a href="cart.html">Cart <span class="cart-count">0</span></a>
-
+        </ul>
     </div>
 
 

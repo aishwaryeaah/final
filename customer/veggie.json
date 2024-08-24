@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 31,
         "name": "Apples (1 kg)",
         "image": "./veggie/1.jpg",
         "price": "₹150.00",
@@ -8,7 +8,7 @@
         "detailImage": "veggie-apples-detail.jpg"
     },
     {
-        "id": 2,
+        "id": 32,
         "name": "Bananas (1 dozen)",
         "image": "./veggie/2.jpg",
         "price": "₹120.00",
@@ -16,7 +16,7 @@
         "detailImage": "veggie-bananas-detail.jpg"
     },
     {
-        "id": 3,
+        "id": 33,
         "name": "Tomatoes (1 kg)",
         "image": "./veggie/3.jpg",
         "price": "₹100.00",
@@ -24,7 +24,7 @@
         "detailImage": "veggie-tomatoes-detail.jpg"
     },
     {
-        "id": 4,
+        "id": 34,
         "name": "Potatoes (1 kg)",
         "image": "./veggie/4.jpg",
         "price": "₹110.00",
@@ -32,7 +32,7 @@
         "detailImage": "veggie-potatoes-detail.jpg"
     },
     {
-        "id": 5,
+        "id": 35,
         "name": "Carrots (1 kg)",
         "image": "./veggie/5.jpg",
         "price": "₹140.00",
@@ -40,7 +40,7 @@
         "detailImage": "veggie-carrots-detail.jpg"
     },
     {
-        "id": 6,
+        "id": 36,
         "name": "Oranges (1 kg)",
         "image": "./veggie/6.jpg",
         "price": "₹180.00",
@@ -48,7 +48,7 @@
         "detailImage": "veggie-oranges-detail.jpg"
     },
     {
-        "id": 7,
+        "id": 37,
         "name": "Onions (1 kg)",
         "image": "./veggie/7.jpg",
         "price": "₹130.00",
@@ -56,7 +56,7 @@
         "detailImage": "veggie-onions-detail.jpg"
     },
     {
-        "id": 8,
+        "id": 38,
         "name": "Spinach (1 bunch)",
         "image": "./veggie/8.jpg",
         "price": "₹110.00",
@@ -64,7 +64,7 @@
         "detailImage": "veggie-spinach-detail.jpg"
     },
     {
-        "id": 9,
+        "id": 39,
         "name": "Grapes (1 kg)",
         "image": "./veggie/9.jpg",
         "price": "₹250.00",
