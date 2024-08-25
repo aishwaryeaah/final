@@ -135,7 +135,7 @@ async function handleLogin() {
             localStorage.setItem('loggedInCustomer', JSON.stringify(customer));
 
             const domain = emailInput.split('@')[1];
-            if (domain === "peppyproduce.com") {
+            if (domain === "BasketBliss.com") {
                 window.location.href = 'admin/dashboard.html';
             } else {
                 window.location.href = 'customer/dashboard.html'; 

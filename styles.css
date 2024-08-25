@@ -35,19 +35,23 @@ header {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700; /* Use Campton Black */
-    color: #B7D817;
-    text-shadow: 2px 2px 0 #000; /* Solid shadow effect in the bottom-right corner */
     display: flex;
-    align-items: center; /* Center the icon and text vertically */
+    align-items: center;
 }
 
 .logo i {
-    font-size: 26px;
-    margin-right: 3px; /* Space between the cart icon and the text */
-    color: transparent; /* Hide the icon color */
-    color: #B7D817;
+    font-size: 30px;
+    margin-right: 8px; /* Increase space between the cart icon and the text */
+    color: #6b7e09; /* Icon color */
+}
+
+.logo span {
+    font-size: 32px; /* Slightly larger font size */
+    color: #6b7e09; /* Text color */
+    font-weight: bold; /* Use a bold weight for a professional look */
+    text-transform: uppercase; /* Make text uppercase for a stylish touch */
+    font-family: "Bebas Neue", sans-serif;
+    font-style: normal;
 }
 
 
@@ -56,6 +60,7 @@ header {
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
+    color: #6b7e09;
 }
 
 nav {
@@ -278,7 +283,7 @@ button:hover {
     width: 250px;
     height: 100%;
     background-color: #333;
-    color: #B7D817;
+    color: #6b7e09;
     transform: translateX(100%); /* Start hidden off-screen */
     transition: transform 0.3s ease; /* Smooth transition */
     z-index: 1000;
@@ -321,7 +326,7 @@ button:hover {
     .menu-icon {
         font-size: 24px;
         cursor: pointer;
-        color: #B7D817; 
+        color: #6b7e09; 
     }
     
     .main-container {
