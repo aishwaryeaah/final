@@ -496,11 +496,10 @@ footer {
         console.error('There was a problem with the fetch operation:', error);
     });
 
-function populateSubscriptions(data) {
+    function populateSubscriptions(data) {
     const activeList = document.getElementById('active-list');
     const pastList = document.getElementById('past-list');
 
-    // Clear any existing content
     activeList.innerHTML = '';
     pastList.innerHTML = '';
 
@@ -508,11 +507,16 @@ function populateSubscriptions(data) {
         const item = document.createElement('div');
         item.className = 'subscription-item';
         item.innerHTML = `
-            <strong>Product:</strong> ${subscription.productName}<br>
-            <strong>Price:</strong> ${subscription.price}<br>
-            <strong>Subscription Type:</strong> ${subscription.subscriptionType}<br>
-            <strong>Start Date:</strong> ${subscription.startDate}<br>
-            <strong>End Date:</strong> ${subscription.endDate}
+            <div class="subscription-details">
+                <strong>Product:</strong> <span class="product-name">${subscription.productName}</span><br>
+                <strong>Price:</strong> <span class="price">${subscription.price}</span><br>
+                <strong>Subscription Type:</strong> <span class="subscription-type">${subscription.subscriptionType}</span><br>
+                <strong>Start Date:</strong> <span class="start-date">${subscription.startDate}</span><br>
+                <strong>End Date:</strong> <span class="end-date">${subscription.endDate}</span><br>
+            </div>
+            <button class="edit-btn">Edit</button>
+            <button class="save-btn" style="display: none;">Save</button>
+            <button class="delete-btn">Delete</button>
         `;
         activeList.appendChild(item);
     });
@@ -521,15 +525,84 @@ function populateSubscriptions(data) {
         const item = document.createElement('div');
         item.className = 'subscription-item';
         item.innerHTML = `
-            <strong>Product:</strong> ${subscription.productName}<br>
-            <strong>Price:</strong> ${subscription.price}<br>
-            <strong>Subscription Type:</strong> ${subscription.subscriptionType}<br>
-            <strong>Start Date:</strong> ${subscription.startDate}<br>
-            <strong>End Date:</strong> ${subscription.endDate}
+            <div class="subscription-details">
+                <strong>Product:</strong> <span class="product-name">${subscription.productName}</span><br>
+                <strong>Price:</strong> <span class="price">${subscription.price}</span><br>
+                <strong>Subscription Type:</strong> <span class="subscription-type">${subscription.subscriptionType}</span><br>
+                <strong>Start Date:</strong> <span class="start-date">${subscription.startDate}</span><br>
+                <strong>End Date:</strong> <span class="end-date">${subscription.endDate}</span><br>
+            </div>
+            <button class="edit-btn">Edit</button>
+            <button class="save-btn" style="display: none;">Save</button>
+            <button class="delete-btn">Delete</button>
         `;
         pastList.appendChild(item);
     });
+
+    setupEditSaveButtons();
+    setupDeleteButtons();
 }
+
+function setupEditSaveButtons() {
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const item = this.parentElement;
+            item.querySelectorAll('.subscription-details span').forEach(span => {
+                const input = document.createElement('input');
+                input.value = span.textContent;
+                span.parentElement.replaceChild(input, span);
+            });
+            this.style.display = 'none';
+            item.querySelector('.save-btn').style.display = 'inline-block';
+        });
+    });
+
+    document.querySelectorAll('.save-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const item = this.parentElement;
+            item.querySelectorAll('.subscription-details input').forEach(input => {
+                const span = document.createElement('span');
+                span.textContent = input.value;
+                input.parentElement.replaceChild(span, input);
+            });
+            this.style.display = 'none';
+            item.querySelector('.edit-btn').style.display = 'inline-block';
+
+            // Here you would send the updated data to the server
+            const updatedSubscription = {
+                productName: item.querySelector('.product-name').textContent,
+                price: item.querySelector('.price').textContent,
+                subscriptionType: item.querySelector('.subscription-type').textContent,
+                startDate: item.querySelector('.start-date').textContent,
+                endDate: item.querySelector('.end-date').textContent
+            };
+
+            console.log('Updated Subscription:', updatedSubscription);
+        });
+    });
+}
+
+function setupDeleteButtons() {
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const item = this.parentElement;
+            if (confirm('Are you sure you want to delete this subscription?')) {
+                item.remove();
+                // Here you would send a request to the server to delete the subscription
+                const deletedSubscription = {
+                    productName: item.querySelector('.product-name').textContent,
+                    price: item.querySelector('.price').textContent,
+                    subscriptionType: item.querySelector('.subscription-type').textContent,
+                    startDate: item.querySelector('.start-date').textContent,
+                    endDate: item.querySelector('.end-date').textContent
+                };
+
+                console.log('Deleted Subscription:', deletedSubscription);
+            }
+        });
+    });
+}
+
 
 
         function updateCartCount() {

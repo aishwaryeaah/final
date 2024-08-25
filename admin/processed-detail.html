@@ -63,6 +63,14 @@ a {
     margin-right: 1rem;
 }
 
+.open-sidebar-btn :hover{
+    color: #B7D817;
+}
+
+.profile-icon i :hover{
+    color: #B7D817;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -424,6 +432,7 @@ button:hover {
     color: #B7D817;
 }
 
+
     </style>
 </head>
 <body>
@@ -469,7 +478,7 @@ button:hover {
     </div>
 
     <div class="tracker">
-        <a href="dashboard.html">Home</a> > <a href="processed-list.html">Processed Food Products</a> > <span id="product-name">Product Name</span>
+        <a href="dashboard.html">Home</a> > <a href="processed-list.html">Processed Products</a> > <span id="product-name">Product</span>
     </div>
 
     <div class="dashboard-content">
@@ -550,15 +559,60 @@ function renderProductDetail(product) {
                 <label for="end-date">End Date:</label>
                 <input type="date" id="end-date">
             </div>
-            <button id="add-to-cart-btn">Add to Cart</button>
+            <button id="edit-btn">Edit</button>
+            <button id="save-btn" style="display: none;">Save</button>
         </div>
     `;
 
-    document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+    document.getElementById('edit-btn').addEventListener('click', function() {
+        // Enable editing
+        document.getElementById('product-name').contentEditable = true;
+        document.getElementById('product-price').contentEditable = true;
+        document.getElementById('product-description').contentEditable = true;
+        document.getElementById('subscription-type').disabled = false;
+        document.getElementById('custom-dates').style.display = 'block';
+
+        // Show the Save button and hide the Edit button
+        document.getElementById('edit-btn').style.display = 'none';
+        document.getElementById('save-btn').style.display = 'inline-block';
+    });
+
+    document.getElementById('save-btn').addEventListener('click', function() {
+        // Get updated values
+        const updatedName = document.getElementById('product-name').textContent;
+        const updatedPrice = document.getElementById('product-price').textContent;
+        const updatedDescription = document.getElementById('product-description').textContent;
         const subscriptionType = document.getElementById('subscription-type').value;
-        addToCart(product.id, subscriptionType);
+
+        // Save the changes (you can send this data to a server or save it locally)
+        saveProductDetails(product.id, updatedName, updatedPrice, updatedDescription, subscriptionType);
+
+        // Disable editing
+        document.getElementById('product-name').contentEditable = false;
+        document.getElementById('product-price').contentEditable = false;
+        document.getElementById('product-description').contentEditable = false;
+        document.getElementById('subscription-type').disabled = true;
+        document.getElementById('custom-dates').style.display = 'none';
+
+        // Hide the Save button and show the Edit button
+        document.getElementById('edit-btn').style.display = 'inline-block';
+        document.getElementById('save-btn').style.display = 'none';
     });
 }
+
+function saveProductDetails(productId, name, price, description, subscriptionType) {
+    // Mock function to simulate saving product details
+    console.log('Saving product details:', {
+        productId,
+        name,
+        price,
+        description,
+        subscriptionType
+    });
+
+    // In a real scenario, you would send this data to a server or save it in local storage
+}
+
 
 
 fetch('processed.json')
