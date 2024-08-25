@@ -41,10 +41,10 @@
     },
     {
         "customerId": "A101",
-        "firstName": "Rohan",
-        "lastName": "Mishra",
+        "firstName": "Jaswanth",
+        "lastName": "Kiran",
         "address": "Patrika Nagar, Hyderabad",
-        "email": "mishraRohan@peppyproduce.com",
+        "email": "KiranJaswanth@peppyproduce.com",
         "phoneNumber": "9456812902",
         "activeSubscriptions": [
             {

@@ -99,14 +99,13 @@ function toggleSidebar() {
 }
 
 async function handleLogin() {
-    console.log("handleLogin function called"); // Debug line
+    console.log("handleLogin function called");
     const emailInput = document.getElementById("email").value.trim();
     const passwordInput = document.getElementById("login-password").value.trim();
     const passwordErrorElement = document.getElementById("password-error");
 
-    console.log("Email entered:", emailInput); // Debug line
-    
-    // Regular expressions to check the password requirements
+    console.log("Email entered:", emailInput);
+
     const hasUpperCase = /[A-Z]/.test(passwordInput);
     const hasNumber = /[0-9]/.test(passwordInput);
     const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
@@ -115,10 +114,10 @@ async function handleLogin() {
     if (!hasUpperCase || !hasNumber || !hasSymbol || !isValidLength) {
         passwordErrorElement.textContent = "Password must contain at least 1 capital letter, 1 symbol, 1 number, and be at least 8 characters long.";
         passwordErrorElement.style.display = "block";
-        return false; // Prevent form submission
+        return false;
     }
 
-    passwordErrorElement.style.display = "none"; // Hide the error message if all checks pass
+    passwordErrorElement.style.display = "none";
 
     try {
         const response = await fetch('customer.json');
@@ -126,18 +125,20 @@ async function handleLogin() {
             throw new Error("Network response was not ok.");
         }
         const customers = await response.json();
-        console.log("Fetched customers:", customers); // Debug line
-        
+        console.log("Fetched customers:", customers);
+
         const customer = customers.find(customer => customer.email === emailInput);
-        console.log("Customer found:", customer); // Debug line
-        
+        console.log("Customer found:", customer);
+
         if (customer) {
+            // Store customer data in local storage
+            localStorage.setItem('loggedInCustomer', JSON.stringify(customer));
+
             const domain = emailInput.split('@')[1];
-            console.log("Email domain:", domain); // Debug line
             if (domain === "peppyproduce.com") {
                 window.location.href = 'admin/dashboard.html';
             } else {
-                window.location.href = 'customer/dashboard.html';
+                window.location.href = 'customer/dashboard.html'; 
             }
         } else {
             alert("Email not found. Please check your email or sign up.");
@@ -146,8 +147,8 @@ async function handleLogin() {
         console.error("Error fetching customer data:", error);
         alert("There was an error processing your request. Please try again later.");
     }
-    
-    return false; // Prevent form submission
+
+    return false;
 }
 
 
