@@ -193,7 +193,7 @@ a {
 }
 
 .bg-image {
-    background-image: url('https://images.pexels.com/photos/289368/pexels-photo-289368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-image: url('https://images.pexels.com/photos/5463227/pexels-photo-5463227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -582,7 +582,7 @@ footer {
                 productDiv.classList.add('product');
                 productDiv.innerHTML = `
                     <img src="${product.image}" alt="${product.name}">
-                    <h4><a href="processed-details.html?id=${product.id}">${product.name}</a></h4>
+                    <h4><a href="processed-detail.html?id=${product.id}">${product.name}</a></h4>
                     <p>Price: ${product.price}</p>
                     <a class="order-now-btn" href="processed-detail.html?id=${product.id}">View</a>
                 `;

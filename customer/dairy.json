@@ -1,74 +1,74 @@
 [
     {
         "id": 1,
-        "name": "Cow Milk",
+        "name": "Amul Butter",
         "image": "./dairy/1.jpg",
         "price": "₹60.00",
-        "description": "Fresh and pure cow milk.",
-        "detailImage": "dairy-cow-milk-detail.jpg"
+        "description": "Smooth and creamy Amul Butter, a must-have for every household.",
+        "detailImage": "dairy-amul-butter-detail.jpg"
     },
     {
         "id": 2,
-        "name": "Buffalo Milk",
+        "name": "Amul Cheese Spread",
         "image": "./dairy/2.jpg",
         "price": "₹80.00",
-        "description": "Rich and creamy buffalo milk.",
-        "detailImage": "dairy-buffalo-milk-detail.jpg"
+        "description": "Delicious and versatile Amul Cheese Spread, perfect for sandwiches and snacks.",
+        "detailImage": "dairy-amul-cheese-spread-detail.jpg"
     },
     {
         "id": 3,
-        "name": "Curd",
+        "name": "Amul Cow Ghee",
         "image": "./dairy/3.jpg",
-        "price": "₹50.00",
-        "description": "Homemade curd made from fresh milk.",
-        "detailImage": "dairy-curd-detail.jpg"
+        "price": "₹140.00",
+        "description": "Pure Amul Cow Ghee made from high-quality cow's milk.",
+        "detailImage": "dairy-amul-cow-ghee-detail.jpg"
     },
     {
         "id": 4,
-        "name": "Paneer",
+        "name": "Amul Paneer",
         "image": "./dairy/4.jpg",
         "price": "₹120.00",
-        "description": "Fresh paneer made from high-quality milk.",
-        "detailImage": "dairy-paneer-detail.jpg"
+        "description": "Fresh and soft Amul Paneer, perfect for cooking delicious dishes.",
+        "detailImage": "dairy-amul-paneer-detail.jpg"
     },
     {
         "id": 5,
-        "name": "Buttermilk",
+        "name": "Milky Moo Aam Dahi",
         "image": "./dairy/5.jpg",
         "price": "₹55.00",
-        "description": "Refreshing buttermilk with traditional flavors.",
-        "detailImage": "dairy-buttermilk-detail.jpg"
+        "description": "Traditional Milky Moo Aam Dahi with a rich mango flavor.",
+        "detailImage": "dairy-milky-moo-aam-dahi-detail.jpg"
     },
     {
         "id": 6,
-        "name": "Ghee",
+        "name": "Milky Moo Ghee",
         "image": "./dairy/6.jpg",
         "price": "₹140.00",
-        "description": "Pure cow ghee made from traditional methods.",
-        "detailImage": "dairy-ghee-detail.jpg"
+        "description": "Pure and aromatic Milky Moo Ghee made from fresh milk.",
+        "detailImage": "dairy-milky-moo-ghee-detail.jpg"
     },
     {
         "id": 7,
-        "name": "Skim Milk",
+        "name": "Milky Moo Milk",
         "image": "./dairy/7.jpg",
         "price": "₹65.00",
-        "description": "Low-fat skim milk for a healthier option.",
-        "detailImage": "dairy-skim-milk-detail.jpg"
+        "description": "Fresh and nutritious Milky Moo Milk, ideal for everyday consumption.",
+        "detailImage": "dairy-milky-moo-milk-detail.jpg"
     },
     {
         "id": 8,
-        "name": "Lassi",
+        "name": "Amul Taaza",
         "image": "./dairy/8.jpg",
         "price": "₹75.00",
-        "description": "Traditional lassi with a hint of sweetness.",
-        "detailImage": "dairy-lassi-detail.jpg"
+        "description": "Pure and fresh Amul Taaza milk, packed with essential nutrients.",
+        "detailImage": "dairy-amul-taaza-detail.jpg"
     },
     {
         "id": 9,
-        "name": "Milk Powder",
+        "name": "Go Cheese",
         "image": "./dairy/9.jpg",
-        "price": "₹130.00",
-        "description": "High-quality milk powder for versatile use.",
-        "detailImage": "dairy-milk-powder-detail.jpg"
+        "price": "₹90.00",
+        "description": "Rich and creamy Go Cheese, perfect for all your cheesy cravings.",
+        "detailImage": "dairy-go-cheese-detail.jpg"
     }
 ]

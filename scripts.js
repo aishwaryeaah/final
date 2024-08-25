@@ -63,13 +63,30 @@ function toggleLogin() {
 function validateSignupForm() {
     const password = document.getElementById("signup-password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
+    const passwordErrorElement = document.getElementById("password-error");
+
+    // Regular expressions to check the password requirements
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const isValidLength = password.length >= 8;
+
     if (password !== confirmPassword) {
-        document.getElementById("password-error").textContent = "Passwords do not match!";
-        document.getElementById("password-error").style.display = "block";
+        passwordErrorElement.textContent = "Passwords do not match!";
+        passwordErrorElement.style.display = "block";
         return false;
     }
+
+    if (!hasUpperCase || !hasNumber || !hasSymbol || !isValidLength) {
+        passwordErrorElement.textContent = "Password must contain at least 1 capital letter, 1 symbol, 1 number, and be at least 8 characters long.";
+        passwordErrorElement.style.display = "block";
+        return false;
+    }
+
+    passwordErrorElement.style.display = "none"; // Hide the error message if all checks pass
     return true;
 }
+
 
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -84,8 +101,25 @@ function toggleSidebar() {
 async function handleLogin() {
     console.log("handleLogin function called"); // Debug line
     const emailInput = document.getElementById("email").value.trim();
+    const passwordInput = document.getElementById("login-password").value.trim();
+    const passwordErrorElement = document.getElementById("password-error");
+
     console.log("Email entered:", emailInput); // Debug line
     
+    // Regular expressions to check the password requirements
+    const hasUpperCase = /[A-Z]/.test(passwordInput);
+    const hasNumber = /[0-9]/.test(passwordInput);
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(passwordInput);
+    const isValidLength = passwordInput.length >= 8;
+
+    if (!hasUpperCase || !hasNumber || !hasSymbol || !isValidLength) {
+        passwordErrorElement.textContent = "Password must contain at least 1 capital letter, 1 symbol, 1 number, and be at least 8 characters long.";
+        passwordErrorElement.style.display = "block";
+        return false; // Prevent form submission
+    }
+
+    passwordErrorElement.style.display = "none"; // Hide the error message if all checks pass
+
     try {
         const response = await fetch('customer.json');
         if (!response.ok) {

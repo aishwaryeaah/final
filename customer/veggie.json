@@ -2,7 +2,7 @@
     {
         "id": 31,
         "name": "Apples (1 kg)",
-        "image": "./veggie/1.jpg",
+        "image": "./veggie/31.jpg",
         "price": "₹150.00",
         "description": "Fresh and juicy apples.",
         "detailImage": "veggie-apples-detail.jpg"
@@ -10,7 +10,7 @@
     {
         "id": 32,
         "name": "Bananas (1 dozen)",
-        "image": "./veggie/2.jpg",
+        "image": "./veggie/32.jpg",
         "price": "₹120.00",
         "description": "Ripe and sweet bananas.",
         "detailImage": "veggie-bananas-detail.jpg"
@@ -18,7 +18,7 @@
     {
         "id": 33,
         "name": "Tomatoes (1 kg)",
-        "image": "./veggie/3.jpg",
+        "image": "./veggie/33.jpg",
         "price": "₹100.00",
         "description": "Fresh and juicy tomatoes.",
         "detailImage": "veggie-tomatoes-detail.jpg"
@@ -26,7 +26,7 @@
     {
         "id": 34,
         "name": "Potatoes (1 kg)",
-        "image": "./veggie/4.jpg",
+        "image": "./veggie/34.jpg",
         "price": "₹110.00",
         "description": "High-quality potatoes for all dishes.",
         "detailImage": "veggie-potatoes-detail.jpg"
@@ -34,7 +34,7 @@
     {
         "id": 35,
         "name": "Carrots (1 kg)",
-        "image": "./veggie/5.jpg",
+        "image": "./veggie/35.jpg",
         "price": "₹140.00",
         "description": "Crisp and fresh carrots.",
         "detailImage": "veggie-carrots-detail.jpg"
@@ -42,7 +42,7 @@
     {
         "id": 36,
         "name": "Oranges (1 kg)",
-        "image": "./veggie/6.jpg",
+        "image": "./veggie/36.jpg",
         "price": "₹180.00",
         "description": "Sweet and tangy oranges.",
         "detailImage": "veggie-oranges-detail.jpg"
@@ -50,7 +50,7 @@
     {
         "id": 37,
         "name": "Onions (1 kg)",
-        "image": "./veggie/7.jpg",
+        "image": "./veggie/37.jpg",
         "price": "₹130.00",
         "description": "Fresh onions for everyday use.",
         "detailImage": "veggie-onions-detail.jpg"
@@ -58,7 +58,7 @@
     {
         "id": 38,
         "name": "Spinach (1 bunch)",
-        "image": "./veggie/8.jpg",
+        "image": "./veggie/38.jpg",
         "price": "₹110.00",
         "description": "Fresh spinach leaves, rich in nutrients.",
         "detailImage": "veggie-spinach-detail.jpg"
@@ -66,7 +66,7 @@
     {
         "id": 39,
         "name": "Grapes (1 kg)",
-        "image": "./veggie/9.jpg",
+        "image": "./veggie/39.jpg",
         "price": "₹250.00",
         "description": "Sweet and juicy grapes.",
         "detailImage": "veggie-grapes-detail.jpg"

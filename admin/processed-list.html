@@ -193,7 +193,7 @@ a {
 }
 
 .bg-image {
-    background-image: url('https://images.pexels.com/photos/289368/pexels-photo-289368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-image: url('https://images.pexels.com/photos/5463227/pexels-photo-5463227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -323,6 +323,7 @@ footer {
     margin: 0 50px; /* Center the grid with margins on both sides */
     max-width: 100vw; /* Limit the maximum width of the container */
     padding: 20px 20px; /* Add padding on the left and right */
+    color: #000000;
 }
 
 .product {
@@ -335,6 +336,7 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color: #FFEFD5; /* Ensure background is white for contrast */
+    color: #000000;
 }
 
 
@@ -500,7 +502,7 @@ footer {
 
 
     <div class="tracker">
-        <a href="dashboard.html">Home</a> > <a href="processed-list.html">Processed Products</a>
+        <a href="dashboard.html">Home</a> > <a href="processed-list.html">Processed Food</a>
     </div>
 
     <div class="dashboard-content">
@@ -582,7 +584,7 @@ footer {
                 productDiv.classList.add('product');
                 productDiv.innerHTML = `
                     <img src="${product.image}" alt="${product.name}">
-                    <h4><a href="processed-details.html?id=${product.id}">${product.name}</a></h4>
+                    <h4><a href="processed-detail.html?id=${product.id}">${product.name}</a></h4>
                     <p>Price: ${product.price}</p>
                     <a class="order-now-btn" href="processed-detail.html?id=${product.id}">View</a>
                 `;
