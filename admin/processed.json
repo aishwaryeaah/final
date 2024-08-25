@@ -1,0 +1,74 @@
+[
+    {
+        "id": 21,
+        "name": "Potato Chips",
+        "image": "./snacks/1.jpg",
+        "price": "₹120.00",
+        "description": "Crispy and savory potato chips.",
+        "detailImage": "snacks-potato-chips-detail.jpg"
+    },
+    {
+        "id": 22,
+        "name": "Chocolate Cake",
+        "image": "./snacks/2.jpg",
+        "price": "₹250.00",
+        "description": "Delicious chocolate cake with rich frosting.",
+        "detailImage": "snacks-chocolate-cake-detail.jpg"
+    },
+    {
+        "id": 23,
+        "name": "Whole Wheat Bread",
+        "image": "./snacks/3.jpg",
+        "price": "₹150.00",
+        "description": "Healthy and fresh whole wheat bread.",
+        "detailImage": "snacks-whole-wheat-bread-detail.jpg"
+    },
+    {
+        "id": 24,
+        "name": "White Bread",
+        "image": "./snacks/4.jpg",
+        "price": "₹130.00",
+        "description": "Soft and fluffy white bread.",
+        "detailImage": "snacks-white-bread-detail.jpg"
+    },
+    {
+        "id": 25,
+        "name": "Vanilla Cake",
+        "image": "./snacks/5.jpg",
+        "price": "₹220.00",
+        "description": "Light and fluffy vanilla cake with creamy frosting.",
+        "detailImage": "snacks-vanilla-cake-detail.jpg"
+    },
+    {
+        "id": 26,
+        "name": "Maggi Noodles",
+        "image": "./snacks/6.jpg",
+        "price": "₹100.00",
+        "description": "Instant Maggi noodles with classic taste.",
+        "detailImage": "snacks-maggi-noodles-detail.jpg"
+    },
+    {
+        "id": 27,
+        "name": "Potato Chips (Family Pack)",
+        "image": "./snacks/7.jpg",
+        "price": "₹180.00",
+        "description": "Family pack of crispy potato chips.",
+        "detailImage": "snacks-potato-chips-family-pack-detail.jpg"
+    },
+    {
+        "id": 28,
+        "name": "Fruit Cake",
+        "image": "./snacks/8.jpg",
+        "price": "₹270.00",
+        "description": "Rich fruit cake loaded with dried fruits.",
+        "detailImage": "snacks-fruit-cake-detail.jpg"
+    },
+    {
+        "id": 29,
+        "name": "Multigrain Bread",
+        "image": "./snacks/9.jpg",
+        "price": "₹160.00",
+        "description": "Nutritious multigrain bread with seeds.",
+        "detailImage": "snacks-multigrain-bread-detail.jpg"
+    }
+]
